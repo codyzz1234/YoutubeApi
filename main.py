@@ -40,7 +40,8 @@ def createEvent(valuesToUse,x):
             },
             
         "status": {
-            "privacyStatus": "unlisted"
+            "madeForKids": True,
+            "privacyStatus": "public"
         }
     }
     )
