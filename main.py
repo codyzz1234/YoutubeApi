@@ -12,10 +12,12 @@ from services import create_service
 
     
 def createEvent(valuesToUse,x):
-    title = (valuesToUse["columnA"][x] + valuesToUse["columnB"][x] + valuesToUse["columnC"][x] + valuesToUse["columnD"][x] + valuesToUse["columnE"][x])
+    title = str((valuesToUse["columnA"][x] + valuesToUse["columnB"][x] + valuesToUse["columnC"][x] + valuesToUse["columnD"][x] + valuesToUse["columnE"][x]))
     description = (str(valuesToUse["columnF"][x]) + '\n' + str(valuesToUse["columnG"][x]) + '\n' + str(valuesToUse["columnH"][x]))  
+    scheduledDate = str(valuesToUse["columnI"][x])
     
-    client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API\client_secret_915153775010-vplo5g8u3c4cqhg4msbi9s61utgc81tu.apps.googleusercontent.com.json"
+    client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API Project\client_secret_915153775010-vplo5g8u3c4cqhg4msbi9s61utgc81tu.apps.googleusercontent.com.json"
+    
     youtube = create_service(client_secrets_file,
         ["https://www.googleapis.com/auth/youtube.force-ssl"])
     if not youtube: return
@@ -34,8 +36,7 @@ def createEvent(valuesToUse,x):
             "snippet":{
                 "title": title,
                 "description":description,
-                "scheduledStartTime": "2022-12-15",
-                "scheduledEndTime": "2022-12-18"
+                "scheduledStartTime": scheduledDate,
             },
             
         "status": {
@@ -60,7 +61,7 @@ def updateThumbNail(videoId):
         videoId=videoId,
         # TODO: For this request to work, you must replace "YOUR_FILE"
         #       with a pointer to the actual file you are uploading.
-        media_body=MediaFileUpload(r"C:\Users\kenley\Desktop\Youtube API\Images\BoykiePIC.png")
+        media_body=MediaFileUpload(r"C:\Users\kenley\Desktop\Youtube API Project\Images\EdenLogo.png")
     )
     response = request.execute()
     print("Update Thumbnail Response: ",response)
@@ -74,9 +75,9 @@ def main():
     for x in range(0,valuesToUse["rows"]):
         videoId = createEvent(valuesToUse,x)
         print("Video Id is ",videoId)
-        time.sleep(5)
+        time.sleep(1.5)
         updateThumbNail(videoId)
-        time.sleep(5)
+        time.sleep(1.5)
     
 if __name__ == '__main__':
     main()

@@ -24,7 +24,8 @@ def readExcel():
     columnF = []
     columnG = []
     columnH = []
-    # columnI = []
+    columnI = []
+    columnJ = []
     count = 0
     for x in range(rows):	
         if x == rows:
@@ -40,7 +41,8 @@ def readExcel():
             columnF.append(df.iloc[x,y+5])
             columnG.append(df.iloc[x,y+6])
             columnH.append(df.iloc[x,y+7])
-            # columnI.append(df.iloc[x,y+8])
+            columnI.append(df.iloc[x,y+8])
+            columnJ.append(df.iloc[x,y+9])
             print("Row of values is ", rowOfValues)
             break;
         count = count + 1
@@ -57,7 +59,8 @@ def readExcel():
         "columnF": columnF,
         "columnG": columnG,
         "columnH": columnH,
-        # "columnI": columnI
+        "columnI": columnI,
+        "columnJ": columnJ,
     }
     
     print("Count is ",count)
@@ -85,7 +88,9 @@ def readExcel():
     print("Column F", valuesToUse["columnF"])
     print("Column G", valuesToUse["columnG"])
     print("Column H", valuesToUse["columnH"])
-    # print("Column I", valuesToUse["columnI"])
+    print("Column I", valuesToUse["columnI"])
+    print("Column J", valuesToUse["columnJ"])
+
 
     # Access List in Dictionary.
     assigned = valuesToUse["columnA"]
