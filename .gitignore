@@ -1,0 +1,10 @@
+#Files
+*.pickle
+
+#File Types
+*.json
+
+#Directories
+/Images
+/__pycache__
+
