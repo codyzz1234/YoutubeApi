@@ -10,7 +10,7 @@ from googleapiclient.http import MediaFileUpload
 from read import readExcel
 from services import create_service
 
-client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API Project\client_secret_915153775010-vplo5g8u3c4cqhg4msbi9s61utgc81tu.apps.googleusercontent.com.json"
+client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API Project\client_secret_915153775010-g82aee8u7vciql0jjop5b7gq657cnhv1.apps.googleusercontent.com.json"
 
 
 def createEvent(valuesToUse,x):
@@ -25,6 +25,7 @@ def createEvent(valuesToUse,x):
     request = youtube.liveBroadcasts().insert(
         part="snippet,contentDetails,status",
         body={
+            
             "contentDetails": {
             "enableClosedCaptions": True,
             "enableContentEncryption": True,
