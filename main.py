@@ -124,9 +124,35 @@ def deleteAllVideos(videoIds):
         print("Broadcast Deleted")
         time.sleep(.5)
         
-
+def updateByVideoId(videoId):
+    youtube = create_service(client_secrets_file,
+        ["https://www.googleapis.com/auth/youtube.force-ssl"])
+    if not youtube: return
     
-    
+    request = youtube.liveBroadcasts().update(
+        part="contentDetails,snippet",
+        body={
+            "contentDetails": {
+            "enableClosedCaptions": True,
+            "enableContentEncryption": True,
+            "enableDvr": True,
+            "enableEmbed": True,
+            "recordFromStart": True,
+            "startWithSlate": True,
+            "monitorStream": {
+            "enableMonitorStream": True,
+            "broadcastStreamDelayMs": 5
+            }
+        },
+        "id": videoId,
+        "snippet": {
+            "scheduledStartTime": "2022-12-25",
+            "title": "Updated Title"
+        }
+        }
+    )
+    response = request.execute()
+    print(response)    
     
     
 def main():
@@ -157,6 +183,11 @@ def main():
             print("Video Title: ",videoInfo['title'][x])
             print("Video Description: ",videoInfo['description'][x])
             print("\n")
+            
+    elif (x == 3):
+        videoId = input("Input Video Id: ")
+        updateByVideoId(videoId)
+        
     
     elif(x == 4):
         videoId = input("Input Video Id: ")
