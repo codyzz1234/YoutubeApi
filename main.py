@@ -137,6 +137,7 @@ def main():
     
     x = int(input("Enter Choice: "))
     if(x == 1): 
+        
         valuesToUse = readExcel()
         print("Values to use is ",readExcel)
         # videoId = createEvent();
@@ -147,7 +148,6 @@ def main():
             updateThumbNail(videoId)
             time.sleep(1.5)
         print("Videos Done Uploading")
-    
         
     elif (x == 2):
         videoInfo = getAllVideoIds();
@@ -162,13 +162,11 @@ def main():
         deleteVideoById(videoId)
     
     elif(x == 5):
-        choice = input(print("Are you sure mang?[Y][N]: "))
+        choice = input("Are you sure mang?[Y][N]: ")
         if(choice == 'Y' or choice == 'y'):
-            videoInfo = getAllVideoIds();
-            videoIds = videoInfo['id'];
+            videoInfo = getAllVideoIds()
+            videoIds = videoInfo['id']
             deleteAllVideos(videoIds)
-        else:
-            pass
             
 
     
