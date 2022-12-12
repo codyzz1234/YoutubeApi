@@ -162,7 +162,7 @@ def main():
         deleteVideoById(videoId)
     
     elif(x == 5):
-        choice = input(print("Are you sure mang?[Y][N]"))
+        choice = input(print("Are you sure mang?[Y][N]: "))
         if(choice == 'Y' or choice == 'y'):
             videoInfo = getAllVideoIds();
             videoIds = videoInfo['id'];
