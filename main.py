@@ -172,7 +172,7 @@ def main():
         print("Broadcasts Have Been Created")
         
     elif (x == 2):
-        maxResults = int(input("Amount of Results Retrieved,input a number: "))
+        maxResults = int(input("Amount of Results Retrieved,input a number[0-50]: "))
         videoInfo = getAllVideoIds(maxResults);
         for x in range(0,len(videoInfo['id'])):
             print("Video Id:",videoInfo['id'][x])
