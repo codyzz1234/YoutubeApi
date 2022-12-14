@@ -163,7 +163,6 @@ def main():
     x = int(input("Enter Choice: "))
     if(x == 1): 
         valuesToUse = readExcel()
-        print("Values to use is ",readExcel)
         # videoId = createEvent();
         for x in range(0,valuesToUse["rows"]):
             videoId = createEvent(valuesToUse,x)
@@ -173,8 +172,7 @@ def main():
         print("Videos Done Uploading")
         
     elif (x == 2):
-        maxResults = int(input("Max Results Retrieved: "))
-        
+        maxResults = int(input("Amount of Results Retrieved,input a number: "))
         videoInfo = getAllVideoIds(maxResults);
         for x in range(0,len(videoInfo['id'])):
             print("Video Id:",videoInfo['id'][x])
