@@ -161,15 +161,15 @@ def main():
     print("[5] Delete All Broadcasts")
     
     x = int(input("Enter Choice: "))
-    if(x == 1): 
+    if(x == 1):
         valuesToUse = readExcel()
         # videoId = createEvent();
-        for x in range(0,valuesToUse["rows"]):
+        for x in range(0,3):
             videoId = createEvent(valuesToUse,x)
             time.sleep(1.5)
             updateThumbNail(videoId)
             time.sleep(1.5)
-        print("Videos Done Uploading")
+        print("Broadcasts Have Been Created")
         
     elif (x == 2):
         maxResults = int(input("Amount of Results Retrieved,input a number: "))
