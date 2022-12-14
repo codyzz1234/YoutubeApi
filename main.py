@@ -10,7 +10,7 @@ from googleapiclient.http import MediaFileUpload
 from read import readExcel
 from services import create_service
 
-client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API Project\client_secret_915153775010-g82aee8u7vciql0jjop5b7gq657cnhv1.apps.googleusercontent.com.json"
+client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API Project\client_secret_915153775010-uv59ks26pm5fanci7qou4n7s16h124kv.apps.googleusercontent.com.json"
 
 
 def createEvent(valuesToUse,x):
@@ -25,7 +25,6 @@ def createEvent(valuesToUse,x):
     request = youtube.liveBroadcasts().insert(
         part="snippet,contentDetails,status",
         body={
-            
             "contentDetails": {
             "enableClosedCaptions": True,
             "enableContentEncryption": True,
@@ -39,7 +38,6 @@ def createEvent(valuesToUse,x):
                 "description":description,
                 "scheduledStartTime": scheduledDate,
             },
-            
         "status": {
             "selfDeclaredMadeForKids": True,
             "privacyStatus": "public"
@@ -47,8 +45,8 @@ def createEvent(valuesToUse,x):
     }
     )
     response = request.execute()
-    print("Response here: ")
     print(response)
+    print("Broadcast Event Created")
     videoId = response['id']
     return videoId
 
@@ -64,13 +62,13 @@ def updateThumbNail(videoId):
         media_body=MediaFileUpload(r"C:\Users\kenley\Desktop\Youtube API Project\Images\EdenLogo.png")
     )
     response = request.execute()
-    print("Update Thumbnail Response: ",response)
+    print(response)
     print("Thumbnail Updated")
     return None;
 
 
 
-def getAllVideoIds():
+def getAllVideoIds(maxResults):
     youtube = create_service(client_secrets_file,
         ["https://www.googleapis.com/auth/youtube.force-ssl"])
     if not youtube: return
@@ -78,7 +76,7 @@ def getAllVideoIds():
         part="snippet,contentDetails,status",
         broadcastStatus="all",
         broadcastType="all",
-        maxResults=50
+        maxResults=maxResults
     )
     videoIds = []
     videoTitle = []
@@ -147,7 +145,7 @@ def updateByVideoId(videoId):
         "id": videoId,
         "snippet": {
             "scheduledStartTime": "2022-12-25",
-            "title": "Updated Title"
+            "title": "Changed Title"
         }
         }
     )
@@ -164,20 +162,20 @@ def main():
     
     x = int(input("Enter Choice: "))
     if(x == 1): 
-        
         valuesToUse = readExcel()
         print("Values to use is ",readExcel)
         # videoId = createEvent();
         for x in range(0,valuesToUse["rows"]):
             videoId = createEvent(valuesToUse,x)
-            print("Video Id: ",videoId)
             time.sleep(1.5)
             updateThumbNail(videoId)
             time.sleep(1.5)
         print("Videos Done Uploading")
         
     elif (x == 2):
-        videoInfo = getAllVideoIds();
+        maxResults = int(input("Max Results Retrieved: "))
+        
+        videoInfo = getAllVideoIds(maxResults);
         for x in range(0,len(videoInfo['id'])):
             print("Video Id:",videoInfo['id'][x])
             print("Video Title: ",videoInfo['title'][x])
