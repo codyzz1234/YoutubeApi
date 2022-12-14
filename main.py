@@ -164,7 +164,7 @@ def main():
     if(x == 1):
         valuesToUse = readExcel()
         # videoId = createEvent();
-        for x in range(0,3):
+        for x in range(0,valuesToUse["rows"]):
             videoId = createEvent(valuesToUse,x)
             time.sleep(1.5)
             updateThumbNail(videoId)
@@ -192,6 +192,8 @@ def main():
     elif(x == 5):
         choice = input("Are you sure mang?[Y][N]: ")
         if(choice == 'Y' or choice == 'y'):
+            maxResults = int(input("Amount of Videos To Be Deleted,input a number[0-50]: "))
+            videoInfo = getAllVideoIds(maxResults);
             videoInfo = getAllVideoIds()
             videoIds = videoInfo['id']
             deleteAllVideos(videoIds)
