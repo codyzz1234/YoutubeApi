@@ -6,7 +6,7 @@ from googleapiclient.http import MediaFileUpload
 from services import create_service
 
 
-client_secrets_file = r"C:\Users\kenley\Desktop\New folder (4)\YoutubeApi\client_secret_915153775010-3efr5vro9ig0dipt2mi2a7ne55if9i4u.apps.googleusercontent.com.json"
+client_secrets_file = r"client_secret_915153775010-3efr5vro9ig0dipt2mi2a7ne55if9i4u.apps.googleusercontent.com.json"
 
 def createEvent(valuesToUse,x):
     title = str((valuesToUse["columnA"][x] + valuesToUse["columnB"][x] + valuesToUse["columnC"][x] + valuesToUse["columnD"][x] + valuesToUse["columnE"][x]))
@@ -54,7 +54,7 @@ def updateThumbNail(videoId):
         videoId=videoId,
         # TODO: For this request to work, you must replace "YOUR_FILE"
         #       with a pointer to the actual file you are uploading.
-        media_body=MediaFileUpload(r"C:\Users\kenley\Desktop\New folder (4)\YoutubeApi\charlesdeluvio-pcZvxrAyYoQ-unsplash.jpg")
+        media_body=MediaFileUpload(r"charlesdeluvio-pcZvxrAyYoQ-unsplash.jpg")
     )
     response = request.execute()
     print(response)
@@ -75,16 +75,21 @@ def getAllVideoIds(maxResults):
     videoIds = []
     videoTitle = []
     videoDescription = []
+    videoSchedule = []
     response = request.execute();
     for x in (response['items']):
+        print("X is " , x)
         videoIds.append(x['id'])
         videoTitle.append(x['snippet']['title']) 
         videoDescription.append(x['snippet']['description'])
+        videoSchedule.append(x['snippet']['scheduledStartTime'])
+        
     
     videoInfo = {
         "id":videoIds,
         "title":videoTitle,
-        "description":videoDescription
+        "description":videoDescription,
+        "schedule":videoSchedule
     }
     return videoInfo
     
