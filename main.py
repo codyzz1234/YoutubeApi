@@ -72,11 +72,9 @@ def main():
         if(choice == 'Y' or choice == 'y'):
             maxResults = int(input("Amount of Videos To Be Deleted,input a number[0-50]: "))
             videoInfo = getAllVideoIds(maxResults);
-            videoInfo = getAllVideoIds()
             videoIds = videoInfo['id']
             deleteAllVideos(videoIds)
+            print("All Broadcasts Deleted")
             
-
-    
 if __name__ == '__main__':
     main()
