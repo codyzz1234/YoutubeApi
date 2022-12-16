@@ -27,6 +27,7 @@ def main():
     x = int(input("Enter Choice: "))
     if(x == 1):
         valuesToUse = readExcel()
+        return
         for x in range(0,valuesToUse["rows"]):
             videoId = createEvent(valuesToUse,x)
             time.sleep(1.5)
@@ -34,6 +35,8 @@ def main():
             time.sleep(1.5)
         print("\n")
         print("Broadcast Events Have been created")
+        # input('Press ENTER to exit')
+
         
     elif (x == 2):
         maxResults = int(input("Amount of Results Retrieved,input a number[0-50]: "))
@@ -45,6 +48,8 @@ def main():
             print("Video Schedule: ",videoInfo['schedule'][x])
             print("\n")
         print("All Broacasts Retrieved")
+        # input('Press ENTER to exit')
+
             
     elif (x == 3):
         print("Input Video Id, to update more than one video put comma in between video ids. Ex: ZbmQ7yU2h_E,uRvtlU_sdTU")
@@ -54,6 +59,8 @@ def main():
         for x in videoId:
             updateByVideoId(x)
         print("Broadcast Updated")
+        # input('Press ENTER to exit')
+
         
         
     
@@ -66,6 +73,8 @@ def main():
             deleteVideoById(x)
             time.sleep(.5)
         print("Broadcasts Deleted")
+        # input('Press ENTER to exit')
+
     
     elif(x == 5):
         choice = input("Are you sure mang?[Y][N]: ")
@@ -75,6 +84,8 @@ def main():
             videoIds = videoInfo['id']
             deleteAllVideos(videoIds)
             print("All Broadcasts Deleted")
+        # input('Press ENTER to exit')
+
             
 if __name__ == '__main__':
     main()
