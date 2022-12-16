@@ -3,6 +3,8 @@
 
 #File Types
 *.json
+*.png
+*.jpg
 
 #Directories
 /Images
