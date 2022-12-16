@@ -10,7 +10,7 @@ from googleapiclient.http import MediaFileUpload
 from read import readExcel
 from services import create_service
 
-client_secrets_file = r"C:\Users\kenley\Desktop\Youtube API Project\client_secret_915153775010-uv59ks26pm5fanci7qou4n7s16h124kv.apps.googleusercontent.com.json"
+client_secrets_file = r"C:\Users\kenley\Desktop\New folder (4)\YoutubeApi\client_secret_915153775010-3efr5vro9ig0dipt2mi2a7ne55if9i4u.apps.googleusercontent.com.json"
 
 
 def createEvent(valuesToUse,x):
@@ -59,7 +59,7 @@ def updateThumbNail(videoId):
         videoId=videoId,
         # TODO: For this request to work, you must replace "YOUR_FILE"
         #       with a pointer to the actual file you are uploading.
-        media_body=MediaFileUpload(r"C:\Users\kenley\Desktop\Youtube API Project\Images\EdenLogo.png")
+        media_body=MediaFileUpload(r"C:\Users\kenley\Desktop\New folder (4)\YoutubeApi\charlesdeluvio-pcZvxrAyYoQ-unsplash.jpg")
     )
     response = request.execute()
     print(response)
@@ -181,13 +181,23 @@ def main():
             print("\n")
             
     elif (x == 3):
-        videoId = input("Input Video Id: ")
-        updateByVideoId(videoId)
+        print("Input Video Id, to update more than one video put comma in between video ids. Ex: ZbmQ7yU2h_E,uRvtlU_sdTU")
+        videoId = input("video id: ")
+        videoId = videoId.replace(' ','')
+        videoId = videoId.split(',')
+        for x in videoId:
+            updateByVideoId(x)
+        
         
     
     elif(x == 4):
-        videoId = input("Input Video Id: ")
-        deleteVideoById(videoId)
+        print("Input Video Id, to delete more than one video put comma in between video ids. Ex: ZbmQ7yU2h_E,uRvtlU_sdTU")
+        videoId = input("video id: ")
+        videoId = videoId.replace(' ','')
+        videoId = videoId.split(',')
+        for x in videoId:
+            deleteVideoById(x)
+        print("Broadcasts Deleted")
     
     elif(x == 5):
         choice = input("Are you sure mang?[Y][N]: ")
