@@ -8,7 +8,6 @@ from googleapiclient.http import MediaFileUpload
 
 
 from read import readExcel
-from services import create_service
 
 from LiveAPIMethods import createEvent
 from LiveAPIMethods import updateThumbNail
@@ -45,6 +44,7 @@ def main():
             print("Video Description: ",videoInfo['description'][x])
             print("Video Schedule: ",videoInfo['schedule'][x])
             print("\n")
+        print("All Broacasts Retrieved")
             
     elif (x == 3):
         print("Input Video Id, to update more than one video put comma in between video ids. Ex: ZbmQ7yU2h_E,uRvtlU_sdTU")
@@ -53,6 +53,7 @@ def main():
         videoId = videoId.split(',')
         for x in videoId:
             updateByVideoId(x)
+        print("Broadcast Updated")
         
         
     
