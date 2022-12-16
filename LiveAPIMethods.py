@@ -78,7 +78,6 @@ def getAllVideoIds(maxResults):
     videoSchedule = []
     response = request.execute();
     for x in (response['items']):
-        print("X is " , x)
         videoIds.append(x['id'])
         videoTitle.append(x['snippet']['title']) 
         videoDescription.append(x['snippet']['description'])
