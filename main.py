@@ -115,7 +115,7 @@ def deleteAllVideos(videoIds):
             ["https://www.googleapis.com/auth/youtube.force-ssl"])
         if not youtube: return
         
-        request = youtube.liveBroadcasts().delete(
+        request = youtube.liveBroadcasts().delete( #Request body, see documentation to edit it to your liking
         id=videoId
         )
         request.execute();
@@ -127,7 +127,7 @@ def updateByVideoId(videoId):
         ["https://www.googleapis.com/auth/youtube.force-ssl"])
     if not youtube: return
     
-    request = youtube.liveBroadcasts().update(
+    request = youtube.liveBroadcasts().update( #Request body, see documentation to edit it to your liking.
         part="contentDetails,snippet",
         body={
             "contentDetails": {
@@ -163,7 +163,6 @@ def main():
     x = int(input("Enter Choice: "))
     if(x == 1):
         valuesToUse = readExcel()
-        # videoId = createEvent();
         for x in range(0,valuesToUse["rows"]):
             videoId = createEvent(valuesToUse,x)
             time.sleep(1.5)
