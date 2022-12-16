@@ -25,7 +25,6 @@ def main():
     print("[4] Delete Broadcast By Id")
     print("[5] Delete All Broadcasts")
     
-    
     x = int(input("Enter Choice: "))
     if(x == 1):
         valuesToUse = readExcel()
