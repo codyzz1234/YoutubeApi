@@ -9,9 +9,9 @@ from services import create_service
 client_secrets_file = r"client_secret_915153775010-3efr5vro9ig0dipt2mi2a7ne55if9i4u.apps.googleusercontent.com.json"
 
 def createEvent(valuesToUse,x):
-    title = str((valuesToUse["columnA"][x] + valuesToUse["columnB"][x] + valuesToUse["columnC"][x] + valuesToUse["columnD"][x] + valuesToUse["columnE"][x]))
-    description = (str(valuesToUse["columnF"][x]) + '\n' + str(valuesToUse["columnG"][x]) + '\n' + str(valuesToUse["columnH"][x]))  
-    scheduledDate = str(valuesToUse["columnI"][x])
+    title = str((valuesToUse["colA"][x] + valuesToUse["colB"][x] + valuesToUse["colC"][x] + valuesToUse["colD"][x] + valuesToUse["colE"][x]))
+    description = (str(valuesToUse["colF"][x]) + '\n' + str(valuesToUse["colG"][x]) + '\n' + str(valuesToUse["colH"][x]))  
+    scheduledDate = str(valuesToUse["colI"][x])
     
     youtube = create_service(client_secrets_file,
         ["https://www.googleapis.com/auth/youtube.force-ssl"])

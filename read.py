@@ -8,73 +8,73 @@ def readExcel():
     #How many rows exist
     cols = df.shape[1]
     
-    columnA = []
-    columnB = []
-    columnC = []
-    columnD = []
-    columnE = []
-    columnF = []
-    columnG = []
-    columnH = []
-    columnI = []
-    columnJ = []
+    colA = []
+    colB = []
+    colC = []
+    colD = []
+    colE = []
+    colF = []
+    colG = []
+    colH = []
+    colI = []
+    colJ = []
     
-    columnA = df.values.T[0].tolist()
-    columnB = df.values.T[1].tolist()
-    columnC = df.values.T[2].tolist()
-    columnD = df.values.T[3].tolist()
-    columnE = df.values.T[4].tolist()
-    columnF = df.values.T[5].tolist()
-    columnG = df.values.T[6].tolist()
-    columnH = df.values.T[7].tolist()
-    columnI = df.values.T[8].tolist()
-    columnJ = df.values.T[9].tolist()
+    colA = df.values.T[0].tolist()
+    colB = df.values.T[1].tolist()
+    colC = df.values.T[2].tolist()
+    colD = df.values.T[3].tolist()
+    colE = df.values.T[4].tolist()
+    colF = df.values.T[5].tolist()
+    colG = df.values.T[6].tolist()
+    colH = df.values.T[7].tolist()
+    colI = df.values.T[8].tolist()
+    colJ = df.values.T[9].tolist()
     
     # for x in range(rows):        
     #     y = 0
     #     rowOfValues = df.iloc[x,y]
     #     listOfValues.append(rowOfValues)
-    #     columnA.append(df.iloc[x,y])
-    #     columnB.append(df.iloc[x,y+1])
-    #     columnC.append(df.iloc[x,y+2])
-    #     columnD.append(df.iloc[x,y+3])
-    #     columnE.append(df.iloc[x,y+4])
-    #     columnF.append(df.iloc[x,y+5])
-    #     columnG.append(df.iloc[x,y+6])
-    #     columnH.append(df.iloc[x,y+7])
-    #     columnI.append(df.iloc[x,y+8])
-    #     columnJ.append(df.iloc[x,y+9])
+    #     colA.append(df.iloc[x,y])
+    #     colB.append(df.iloc[x,y+1])
+    #     colC.append(df.iloc[x,y+2])
+    #     colD.append(df.iloc[x,y+3])
+    #     colE.append(df.iloc[x,y+4])
+    #     colF.append(df.iloc[x,y+5])
+    #     colG.append(df.iloc[x,y+6])
+    #     colH.append(df.iloc[x,y+7])
+    #     colI.append(df.iloc[x,y+8])
+    #     colJ.append(df.iloc[x,y+9])
         
     
     valuesToUse = {
         "rows":rows,
-        "columnA": columnA,
-        "columnB": columnB,
-        "columnC": columnC,
-        "columnD": columnD,
-        "columnE": columnE,
-        "columnF": columnF,
-        "columnG": columnG,
-        "columnH": columnH,
-        "columnI": columnI,
-        "columnJ": columnJ,
+        "colA": colA,
+        "colB": colB,
+        "colC": colC,
+        "colD": colD,
+        "colE": colE,
+        "colF": colF,
+        "colG": colG,
+        "colH": colH,
+        "colI": colI,
+        "colJ": colJ,
     }
     
     
-    print("Column A", valuesToUse["columnA"])
-    print("Column B", valuesToUse["columnB"])
-    print("Column C", valuesToUse["columnC"])
-    print("Column D", valuesToUse["columnD"])
-    print("Column E", valuesToUse["columnE"])
-    print("Column F", valuesToUse["columnF"])
-    print("Column G", valuesToUse["columnG"])
-    print("Column H", valuesToUse["columnH"])
-    print("Column I", valuesToUse["columnI"])
-    print("Column J", valuesToUse["columnJ"])
+    print("Column A", valuesToUse["colA"])
+    print("Column B", valuesToUse["colB"])
+    print("Column C", valuesToUse["colC"])
+    print("Column D", valuesToUse["colD"])
+    print("Column E", valuesToUse["colE"])
+    print("Column F", valuesToUse["colF"])
+    print("Column G", valuesToUse["colG"])
+    print("Column H", valuesToUse["colH"])
+    print("Column I", valuesToUse["colI"])
+    print("Column J", valuesToUse["colJ"])
 
 
     # # Access List in Dictionary.
-    # assigned = valuesToUse["columnA"]
+    # assigned = valuesToUse["colA"]
     # print("Assigned is " ,assigned)
 
     # #Loop through list
