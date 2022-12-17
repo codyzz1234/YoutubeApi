@@ -23,7 +23,6 @@ def main():
     print("[3] Update Broadcast By Id")
     print("[4] Delete Broadcast By Id")
     print("[5] Delete All Broadcasts")
-    print("[6] List All Videos Uploaded To The Channel")
     
     x = int(input("Enter Choice: "))
     if(x == 1):
