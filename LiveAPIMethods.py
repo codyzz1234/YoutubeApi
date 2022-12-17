@@ -9,8 +9,8 @@ from services import create_service
 client_secrets_file = r"client_secret_915153775010-3efr5vro9ig0dipt2mi2a7ne55if9i4u.apps.googleusercontent.com.json"
 
 def createEvent(valuesToUse,x):
-    title = str((valuesToUse["colA"][x] + valuesToUse["colB"][x] + valuesToUse["colC"][x] + valuesToUse["colD"][x] + valuesToUse["colE"][x]))
-    description = (str(valuesToUse["colF"][x]) + '\n' + str(valuesToUse["colG"][x]) + '\n' + str(valuesToUse["colH"][x]))  
+    title = str(valuesToUse["colA"][x] + valuesToUse["colB"][x] + valuesToUse["colC"][x] + valuesToUse["colD"][x] + valuesToUse["colE"][x])
+    description = str(valuesToUse["colF"][x] + '\n' + valuesToUse["colG"][x] + '\n' + valuesToUse["colH"][x])  
     scheduledDate = str(valuesToUse["colI"][x])
     
     youtube = create_service(client_secrets_file,
@@ -54,7 +54,7 @@ def updateThumbNail(videoId):
         videoId=videoId,
         # TODO: For this request to work, you must replace "YOUR_FILE"
         #       with a pointer to the actual file you are uploading.
-        media_body=MediaFileUpload(r"charlesdeluvio-pcZvxrAyYoQ-unsplash.jpg")
+        media_body=MediaFileUpload(r"Billy.png")
     )
     response = request.execute()
     print(response)
