@@ -27,7 +27,7 @@ def main():
     x = int(input("Enter Choice: "))
     if(x == 1):
         valuesToUse = readExcel()
-        for x in range(0,valuesToUse["rows"]):
+        for x in range(0,2):
             videoId = createEvent(valuesToUse,x)
             time.sleep(1.5)
             updateThumbNail(videoId)

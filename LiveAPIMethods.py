@@ -9,9 +9,13 @@ from services import create_service
 client_secrets_file = r"client_secret_915153775010-3efr5vro9ig0dipt2mi2a7ne55if9i4u.apps.googleusercontent.com.json"
 
 def createEvent(valuesToUse,x):
-    title = str(valuesToUse["colA"][x] + valuesToUse["colB"][x] + valuesToUse["colC"][x] + valuesToUse["colD"][x] + valuesToUse["colE"][x])
-    description = str(valuesToUse["colF"][x] + '\n' + valuesToUse["colG"][x] + '\n' + valuesToUse["colH"][x])  
-    scheduledDate = str(valuesToUse["colI"][x])
+    # title = str(valuesToUse["colA"][x] + valuesToUse["colB"][x] + valuesToUse["colC"][x] + valuesToUse["colD"][x] + valuesToUse["colE"][x])
+    # description = str(valuesToUse["colF"][x] + '\n' + valuesToUse["colG"][x] + '\n' + valuesToUse["colH"][x])  
+    # scheduledDate = str(valuesToUse["colI"][x])
+    
+    title = str(''.join(valuesToUse["titles"][x])) ## removes the '[]' brackets
+    description = str('\n'.join(valuesToUse["descriptions"][x])) ## adds new line after each element
+    scheduledDate = str(valuesToUse["dates"][x])
     
     youtube = create_service(client_secrets_file,
         ["https://www.googleapis.com/auth/youtube.force-ssl"])

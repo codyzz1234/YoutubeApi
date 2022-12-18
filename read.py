@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 def readExcel():
     #Dataframe object
     df = pd.read_excel('rostering.xlsx', header=None)
@@ -30,6 +31,19 @@ def readExcel():
     colI = df.values.T[8].tolist()
     colJ = df.values.T[9].tolist()
     
+    titles = np.column_stack((colA,colB,colC,colD,colE)) #stacks the list into one array
+    descriptions = np.column_stack((colF,colG,colH)) #stacks the list into one array
+    dates = colI
+    
+    
+    valuesToUse = {
+        "rows":rows,
+        "titles": titles,
+        "descriptions": descriptions,
+        "dates": dates,
+    }
+    
+    
     # for x in range(rows):        
     #     y = 0
     #     rowOfValues = df.iloc[x,y]
@@ -44,33 +58,36 @@ def readExcel():
     #     colH.append(df.iloc[x,y+7])
     #     colI.append(df.iloc[x,y+8])
     #     colJ.append(df.iloc[x,y+9])
+    
+    
+    
         
     
-    valuesToUse = {
-        "rows":rows,
-        "colA": colA,
-        "colB": colB,
-        "colC": colC,
-        "colD": colD,
-        "colE": colE,
-        "colF": colF,
-        "colG": colG,
-        "colH": colH,
-        "colI": colI,
-        "colJ": colJ,
-    }
+    # valuesToUse = {
+    #     "rows":rows,
+    #     "colA": colA,
+    #     "colB": colB,
+    #     "colC": colC,
+    #     "colD": colD,
+    #     "colE": colE,
+    #     "colF": colF,
+    #     "colG": colG,
+    #     "colH": colH,
+    #     "colI": colI,
+    #     "colJ": colJ,
+    # }
     
     
-    print("Column A", valuesToUse["colA"])
-    print("Column B", valuesToUse["colB"])
-    print("Column C", valuesToUse["colC"])
-    print("Column D", valuesToUse["colD"])
-    print("Column E", valuesToUse["colE"])
-    print("Column F", valuesToUse["colF"])
-    print("Column G", valuesToUse["colG"])
-    print("Column H", valuesToUse["colH"])
-    print("Column I", valuesToUse["colI"])
-    print("Column J", valuesToUse["colJ"])
+    # print("Column A", valuesToUse["colA"])
+    # print("Column B", valuesToUse["colB"])
+    # print("Column C", valuesToUse["colC"])
+    # print("Column D", valuesToUse["colD"])
+    # print("Column E", valuesToUse["colE"])
+    # print("Column F", valuesToUse["colF"])
+    # print("Column G", valuesToUse["colG"])
+    # print("Column H", valuesToUse["colH"])
+    # print("Column I", valuesToUse["colI"])
+    # print("Column J", valuesToUse["colJ"])
 
 
     # # Access List in Dictionary.
